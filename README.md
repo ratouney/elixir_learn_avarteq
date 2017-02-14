@@ -7,12 +7,12 @@ Simply fork this repository on your github account.
 
 ## What do I need to do?
 On each of the folders contained in this repository, you will find a small course (README.md) and a suit of exercises.
-Open the `*_test.ex`  to know what is expected from you.
-You need to code the solution on the file **without** the `*_test.ex` extension.
+Open the `*_test.exs`  to know what is expected from you.
+You need to code the solution on the file **without** the `*_test.exs` extension.
 
 ## How can I run the tests?
 Run in your shell:
-```$> elixir my_file_test.ex```
+```$> elixir my_file_test.exs```
 
 _Note: remove the `$>` and replace the `my_file` with your filename._
 
