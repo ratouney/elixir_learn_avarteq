@@ -18,13 +18,17 @@ defmodule HelloWorld do
   http://elixir-lang.org/getting-started/modules.html#default-arguments
   """
 
+
+  def hello() do
+    "Hello, World!"
+  end
   @doc """
   Takes a list of Strings and return greatings to all of them in one sentence.
   Hint: Look at Enum: https://hexdocs.pm/elixir/Enum.html
   """
-  @spec hello(List.t) :: String.t
-  def hello(list) do
-  end
+  #@spec hello(List.t) :: List.t
+  #def hello(list) do
+  #end
 
   @doc """
   Greets the user by name, or by saying "Hello, World!"
@@ -32,17 +36,22 @@ defmodule HelloWorld do
   """
   @spec hello(String.t) :: String.t
   def hello(name) do
+    #"Hello, #{name}!"
+    "Hello, " <> name <> "!"
   end
 
   def first_name(map) do
+    map.first_name
   end
 
   @doc """
   Hint: https://hexdocs.pm/elixir/String.html#summary
   """
   def first_name_capitalized(map) do
+    String.capitalize(map.first_name)
   end
 
   def full_name(map) do
+    String.capitalize(map.first_name) <> " " <> String.capitalize(map.last_name)
   end
 end
