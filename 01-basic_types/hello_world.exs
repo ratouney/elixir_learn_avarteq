@@ -26,9 +26,13 @@ defmodule HelloWorld do
   Takes a list of Strings and return greatings to all of them in one sentence.
   Hint: Look at Enum: https://hexdocs.pm/elixir/Enum.html
   """
-  #@spec hello(List.t) :: List.t
-  #def hello(list) do
-  #end
+  @spec hello(List.t) :: List.t
+  def hello(list) when is_list(list) do
+    x = "Hello"
+    Enum.each(list, fn(s) -> x = x <> ", " <> s end)
+    x = x <> "!"
+    x
+  end
 
   @doc """
   Greets the user by name, or by saying "Hello, World!"
@@ -36,7 +40,6 @@ defmodule HelloWorld do
   """
   @spec hello(String.t) :: String.t
   def hello(name) do
-    #"Hello, #{name}!"
     "Hello, " <> name <> "!"
   end
 
