@@ -28,10 +28,7 @@ defmodule HelloWorld do
   """
   @spec hello(List.t) :: List.t
   def hello(list) when is_list(list) do
-    x = "Hello"
-    Enum.each(list, fn(s) -> IO.puts(", " <> s) end)
-    x = x <> "!"
-    x
+    "Hello, " <> Enum.join(list, ", ") <> "!"
   end
 
   @doc """
