@@ -1,33 +1,37 @@
-defmodule Setup do
-  def player1,  do: %Player{ id: 1,         race: "terran" }
-  def player2,  do: %Player{ id: 2,         race: "zerg" }
-  def marine,   do: %Unit{ player: player1, hp: 40, damage: 10, attack_air: true }
-  def zergling, do: %Unit{ player: player2, hp: 20, damage: 8, attack_air: true }
-end
-
 defmodule Build do
     def create(player, unit) do
-        if to_string(unit) == "marine" do
-            if player.race == "terran" do
-                {:ok, Setup.marine}
-            else
-                {:error, "Player is not a terran"}
-            end
+        %{:id => id, :race => race } = player
+        if to_string(unit) == "zergling" do
+            Zerg.unit(race)
         else
-            if player.race == "zerg" do
-               {:ok, Setup.zergling}
-            else
-                {:error, "Player is not a zerg"}
-            end
+            Terran.unit(race)
         end
     end
     def create!(player, unit) do
-        {status, data} = create(player, unit)
-
-        if status == :ok do
-            data
+        if to_string(unit) == "zergling" do
+            Setup.zergling
         else
-            nil
+            Setup.marine
+        end
+    end
+end
+
+defmodule Zerg do
+    def unit(race) do
+        if race == "zerg" do
+            {:ok, Setup.zergling}
+        else
+            {:error, "Player is not a zerg"}
+        end
+    end
+end
+
+defmodule Terran do
+    def unit(race) do
+        if race == "terran" do
+            {:ok, Setup.marine}
+        else
+            {:error, "Player is not a terran"}
         end
     end
 end
