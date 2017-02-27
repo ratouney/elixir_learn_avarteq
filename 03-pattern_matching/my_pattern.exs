@@ -11,8 +11,8 @@ defmodule MyPattern do
         "I am unarmed"
     end
     def my_weapon(list, atom) do 
-        [useless, alsouseless, weap, forgetit] = list
-        :yolo
+        [useless, alsouseless, weap] = list
+        "olo"
     end
     def best_friend(map) do
         %{:age => age, :name => name, :best_friend => bf} = map
